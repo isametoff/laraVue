@@ -19,6 +19,9 @@
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet"
         href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- JQVMap -->
@@ -31,17 +34,20 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
+    <style>
+        .custom-file-label::after {
+            content: "...";
+        }
+    </style>
 </head>
 
-<body>
+<body class="sidebar-mini layout-fixed sidebar-collapse">
     <div class="wrapper">
-
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
-                width="60">
+            <img class="animation__shake" src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="Магазинчик"
+                height="60" width="60">
         </div>
-
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
@@ -57,7 +63,6 @@
                     <a href="#" class="nav-link">Contact</a>
                 </li>
             </ul>
-
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
@@ -82,7 +87,6 @@
                         </form>
                     </div>
                 </li>
-
                 <!-- Messages Dropdown Menu -->
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
@@ -93,7 +97,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar"
+                                <img src="{{ asset('dist/img/user1-128x128.jpg') }}" alt="User Avatar"
                                     class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -110,12 +114,13 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar"
+                                <img src="{{ asset('dist/img/user8-128x128.jpg') }}" alt="User Avatar"
                                     class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-muted"><i
+                                                class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">I got your message bro</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -127,7 +132,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar"
+                                <img src="{{ asset('dist/img/user3-128x128.jpg') }}" alt="User Avatar"
                                     class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -188,7 +193,8 @@
         @include('includes.sidebar')
         @yield('content')
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-{{now()->year}} <a href="{{route('main.index')}}">Магазинчик</a>.</strong>
+            <strong>Copyright &copy; 2014-{{ now()->year }} <a
+                    href="{{ route('main.index') }}">Магазинчик</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
@@ -213,6 +219,8 @@
     </script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <!-- Select2 -->
+    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <!-- ChartJS -->
     <script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
     <!-- Sparkline -->
@@ -235,6 +243,49 @@
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.product-image-thumb').on('click', function() {
+                var $image_element = $(this).find('img')
+                $('.product-image').prop('src', $image_element.attr('src'))
+                $('.product-image-thumb.active').removeClass('active')
+                $(this).addClass('active')
+            })
+        })
+    </script>
+    <script>
+        $(function() {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+            $('.select3').select3()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            })
+        })
+    </script>
+    <script>
+        $('#my-select').selectMultiple()
+    </script>
+    <script>
+        function myColor() {
+
+            // Get the value return by color picker
+            var color = document.getElementById('colorPicker').value;
+
+            // Set the color as background
+            document.body.style.backgroundColor = color;
+
+            // Take the hex code
+            document.getElementById('box').value = color;
+        }
+
+        // When user clicks over color picker,
+        // myColor() function is called
+        document.getElementById('colorPicker')
+            .addEventListener('input', myColor);
+    </script>
 </body>
 
 </html>

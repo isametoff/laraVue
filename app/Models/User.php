@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -17,10 +18,29 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    use Notifiable, HasFactory, SoftDeletes;
+
+    const MALE_GENDER = 0;
+    const FEMALE_GENDER = 1;
+
+    public static function getGenders()
+    {
+        return [
+            self::MALE_GENDER => 'Мужской',
+            self::FEMALE_GENDER => 'Женский',
+        ];
+    }
+
+    protected $table = 'users';
     protected $fillable = [
         'name',
+        'surname',
+        'patronymic',
+        'age',
         'email',
         'password',
+        'gender',
+        'email_verified_at',
     ];
 
     /**
