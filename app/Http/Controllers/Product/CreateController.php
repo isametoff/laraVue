@@ -12,6 +12,7 @@ class CreateController extends Controller
 {
     public function __invoke(Product $product)
     {
+//        dd($product);
         $categories = Category::all();
         $tags = Tag::all();
         $colors = Color::all();

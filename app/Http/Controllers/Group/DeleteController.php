@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Product;
+namespace App\Http\Controllers\Group;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
+use App\Models\Group;
 
 class DeleteController extends Controller
 {
-    public function __invoke(Product $product)
+    public function __invoke(Group $group)
     {
-        $product->delete();
-        return redirect()->route('product.index');
+        $group->delete();
+        return redirect()->route('group.index');
     }
 }

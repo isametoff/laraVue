@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Тэги')
+@section('title', 'Группы')
 @section('content')
     <div class="content-wrapper">
         <div class="content-header">
@@ -11,7 +11,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('main.index') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="#">Тэги</a></li>
+                            <li class="breadcrumb-item"><a href="#">Группы</a></li>
                         </ol>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                 <div class="row justify-content-md-center">
                     <div class="card-group">
                         <div class="col-4">
-                            <a href="{{ route('tag.create') }}" class="btn btn-block btn-primary mb-3">Добавить</a>
+                            <a href="{{ route('group.create') }}" class="btn btn-block btn-primary mb-3">Добавить</a>
                         </div>
                         <div class="col-md-auto">
                             <div class="card ">
@@ -32,21 +32,15 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Наименование</th>
-                                                <th colspan="2">Действия</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($tags as $tag)
+                                            @foreach ($groups as $group)
                                                 <tr>
-                                                    <td>{{ $tag->id }}</td>
-                                                    <td>{{ $tag->title }}</td>
+                                                    <td>{{ $group->id }}</td>
+                                                    <td>{{ $group->title }}</td>
                                                     <td class="text-center">
-                                                        <a href="{{ route('tag.edit', $tag->id) }}"><i
-                                                                class="fas fa-pen"></i>
-                                                        </a>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <form action="{{ route('tag.delete', $tag->id) }}"
+                                                        <form action="{{ route('group.delete', $group->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')

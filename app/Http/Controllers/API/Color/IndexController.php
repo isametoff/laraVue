@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\Product;
+namespace App\Http\Controllers\API\Color;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Color\ColorResource;

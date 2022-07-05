@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Color;
+namespace App\Http\Requests\Group;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,8 +25,18 @@ class StoreRequest extends FormRequest
     {
         return
         [
-            'hex_code' => ['required', 'string', 'regex:/^(#[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/'],
-            'title' => 'required|string',
+            'title' => 'required|string|unique:groups,title',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => 'Это поле необходимо для заполнения',
+            'title' => 'Введите title',
+            'title.unique' => 'Введите unique',
+            'title.string' => 'Введите string',
+
         ];
     }
 }

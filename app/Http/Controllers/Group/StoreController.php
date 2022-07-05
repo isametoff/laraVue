@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Color;
+namespace App\Http\Controllers\Group;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Color\StoreRequest;
-use App\Models\color;
+use App\Http\Requests\Group\StoreRequest;
+use App\Models\Group;
 
 class StoreController extends Controller
 {
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        Color::firstOrCreate($data);
-        return redirect()->route('color.index');
+        Group::firstOrCreate($data);
+
+        return redirect()->route('group.index');
     }
 }

@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Product\ProductResource;
 use App\Models\Product;
 
-class IndexController extends Controller
+class ShowController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Product $product)
     {
-        $products = Product::all();
-        return ProductResource::collection($products);
+        return new ProductResource($product);
+
     }
 }

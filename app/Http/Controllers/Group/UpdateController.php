@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Color;
+namespace App\Http\Controllers\Group;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Color\UpdateRequest;
-use App\Models\Color;
-use Illuminate\Http\Request;
+use App\Models\Group;
 
 class UpdateController extends Controller
 {
-    public function __invoke(UpdateRequest $request, Color $color)
+    public function __invoke(UpdateRequest $request, Group $group)
     {
         $data = $request->validated();
-        $color->update($data);
-        return redirect()->route('color.index');
+        $group->update($data);
+        return redirect()->route('group.index');
     }
 }

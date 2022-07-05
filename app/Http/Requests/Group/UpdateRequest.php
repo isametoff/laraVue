@@ -25,8 +25,7 @@ class UpdateRequest extends FormRequest
     {
         return
         [
-            'hex_code' => ['required', 'string', 'regex:/^(#[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/'],
-            'title' => 'required|string',
+            'title' => 'required|string|unique:groups,title',
         ];
     }
 }

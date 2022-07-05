@@ -34,6 +34,7 @@ class UpdateRequest extends FormRequest
             'category_id' => 'nullable',
             'tag_id' => 'nullable|array',
             'color_id' => 'nullable|array',
+            'product_images' => 'required|array|between:3,3',
         ];
     }
 
@@ -44,6 +45,7 @@ class UpdateRequest extends FormRequest
             'email' => 'Введите email',
             'nullable' => 'nullable',
             'string' => 'string',
+            'product_images.required' => 'Все поля с изображениями должны быть заполнены ',
 
         ];
     }

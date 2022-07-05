@@ -36,6 +36,14 @@ Route::name('color.')->prefix('colors')->group(function () {
     Route::patch('/{color}', App\Http\Controllers\Color\UpdateController::class)->name('update');
     Route::delete('/{color}', App\Http\Controllers\Color\DeleteController::class)->name('delete');
 });
+Route::name('group.')->prefix('groups')->group(function () {
+    Route::get('/', App\Http\Controllers\Group\IndexController::class)->name('index');
+    Route::get('/create', App\Http\Controllers\Group\CreateController::class)->name('create');
+    Route::post('/store', App\Http\Controllers\Group\StoreController::class)->name('store');
+    Route::get('/{group}/edit', App\Http\Controllers\Group\EditController::class)->name('edit');
+    Route::patch('/{group}', App\Http\Controllers\Group\UpdateController::class)->name('update');
+    Route::delete('/{group}', App\Http\Controllers\Group\DeleteController::class)->name('delete');
+});
 Route::name('tag.')->prefix('tags')->group(function () {
     Route::get('/', App\Http\Controllers\Tag\IndexController::class)->name('index');
     Route::get('/create', App\Http\Controllers\Tag\CreateController::class)->name('create');

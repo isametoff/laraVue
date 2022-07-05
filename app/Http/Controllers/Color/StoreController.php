@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Color;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Color\StoreRequest;
-use App\Models\color;
+use App\Models\Color;
 
 class StoreController extends Controller
 {

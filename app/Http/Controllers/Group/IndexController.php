@@ -1,17 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Product;
+namespace App\Http\Controllers\Group;
 
 use App\Http\Controllers\Controller;
-use App\Models\Color;
-use App\Models\ColorProduct;
-use App\Models\Product;
+use App\Models\Group;
 
-class IndexController extends Controller
+class  IndexController extends Controller
 {
-    public function __invoke(ColorProduct $colorProducts, Product $product)
+    public function __invoke( )
     {
-        $products = Product::orderBy('id', 'desc')->get();
-        return view('product.index', compact('products'));
+        $groups = Group::orderBy('id', 'desc')->get();
+        return view('group.index', compact('groups'));
     }
 }

@@ -53,6 +53,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('group.index') }}" class="nav-link
+                    {{ (request()->is('groups*')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-layer-group"></i>
+                        <p>
+                            Группы
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('tag.index') }}" class="nav-link
                     {{ (request()->is('tags*')) ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tags"></i>

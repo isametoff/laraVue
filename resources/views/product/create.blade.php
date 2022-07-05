@@ -68,6 +68,51 @@
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Добавить изображение</label>
+                                    <div class="input-group ">
+                                        <div class="custom-file">
+                                            <label class="custom-file-label">Выбрать изображение</label>
+                                            <input type="file" class="custom-file-input" name="product_images[]">
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Загрузить</span>
+                                        </div>
+                                    </div>
+                                    @error('preview_image')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Добавить изображение</label>
+                                    <div class="input-group ">
+                                        <div class="custom-file">
+                                            <label class="custom-file-label">Выбрать изображение</label>
+                                            <input type="file" class="custom-file-input" name="product_images[]">
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Загрузить</span>
+                                        </div>
+                                    </div>
+                                    @error('preview_image')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">Добавить изображение</label>
+                                    <div class="input-group ">
+                                        <div class="custom-file">
+                                            <label class="custom-file-label">Выбрать изображение</label>
+                                            <input type="file" class="custom-file-input" name="product_images[]">
+                                        </div>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Загрузить</span>
+                                        </div>
+                                    </div>
+                                    @error('preview_image')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
                                 <!-- /.form-group -->
                             </div>
                             <!-- /.col -->
@@ -104,23 +149,6 @@
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                {{-- <div class="form-group" data-select2-id="42">
-                                    <label>Цветa</label>
-                                    <select name="colors[]" class="select2 select2-hidden-accessible" multiple=""
-                                        data-placeholder="Select a State" style="width: 100%;" data-select2-id="8"
-                                        tabindex="-1" aria-hidden="true">
-                                        @foreach ($colors as $color)
-                                            <option style="background-color:{{ $color->title }}"
-                                                value="{{ $color->title }}">
-                                                {{ $color->title }} <div class="rounded-circle"
-                                                    style="background-color:{{ $color->title }}">
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('colors')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div> --}}
                                 <div class="form-group">
                                     <label>Категории</label>
                                     <select name="category_id" class="form-control">
@@ -147,6 +175,14 @@
                                     <input name="price" value="{{ old('price') }}" class="form-control"
                                         type="integer">
                                     @error('price')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                <div class="form-group" data-select2-id="29">
+                                    <label>Старая цена</label>
+                                    <input name="old_price" value="{{ old('old_price') }}" class="form-control"
+                                        type="integer">
+                                    @error('old_price')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>

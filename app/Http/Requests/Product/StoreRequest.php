@@ -29,11 +29,13 @@ class StoreRequest extends FormRequest
             'content' => 'required|string',
             'preview_image' => 'required|file',
             'price' => 'required|integer',
+            'old_price' => 'required|integer',
             'count' => 'required|integer',
             'is_published' => 'nullable',
-            'category_id' => 'nullable',
-            'tags' => 'nullable|array',
-            'colors' => 'nullable|array',
+            'category_id' => 'required|nullable',
+            'tags' => 'required|nullable|array',
+            'colors' => 'required|nullable|array',
+            'product_images' => 'required|array|between:3,3',
         ];
     }
 
@@ -44,6 +46,7 @@ class StoreRequest extends FormRequest
             'email' => 'Введите email',
             'nullable' => 'nullable',
             'string' => 'string',
+            'product_images.required' => 'Все поля с изображениями должны быть заполнены ',
 
         ];
     }

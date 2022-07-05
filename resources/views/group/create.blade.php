@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Добавление тэга')
+@section('title', 'Добавление групп')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -8,13 +8,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление тэга</h1>
+                        <h1 class="m-0">Добавление группы</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('main.index') }}">Главная</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('tag.index') }}">Тэги</a></li>
-                            <li class="breadcrumb-item"><a href="#">Добавление тэга</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('group.index') }}">Группы</a></li>
+                            <li class="breadcrumb-item"><a href="#">Добавление группы</a></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -25,13 +25,15 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-lg-3 col-12">
-                        <form action="{{ route('tag.store') }}" method="POST">
+                        <form action="{{ route('group.store') }}" method="POST">
                             @csrf
+                            @method('POST')
                             <div class="form-group col-12">
-                                <input type="text" class="form-control" name="title" placeholder="Название тэга"autofocus>
-                                @error('title')
-                                    <div class="text-danger">Это поле необходимо заполнить</div>
-                                @enderror
+                                <input name="title" type="text" class="form-control" value="{{ old('title') }}"
+                                    placeholder="Название группы" autofocus>
+                            @error('title')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                             </div>
                             <div class="col-12">
                                 <input type="submit" class="btn btn-primary" value="Добавить">
