@@ -30,22 +30,15 @@
                             @method('PATCH')
                             <div class="form-group col-12">
                                 <input type="text" class="form-control" name="title" placeholder="Название категории"
-                                    value="{{ $category->title }}">
+                                       value="{{ $category->title }}">
                                 @error('title')
-                                    <div class="text-danger">Это поле необходимо заполнить</div>
+                                <div class="text-danger">Это поле необходимо заполнить</div>
                                 @enderror
                             </div>
+                            <div class="col-12">
+                                <input type="submit" class="btn btn-primary" value="Обновить">
+                            </div>
                         </form>
-                        <div class="col-12">
-                            <input type="submit" class="btn btn-primary" value="Обновить">
-                            <td class="text-center">
-                                <form action="{{ route('category.delete', $category->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="submit" class="btn btn-danger ml-2" value="Удалить">
-                                </form>
-                            </td>
-                        </div>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->

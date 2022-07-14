@@ -10,7 +10,7 @@ use App\Models\Tag;
 
 class FilterListController extends Controller
 {
-    public function __invoke(Product $product)
+    public function __invoke()
     {
         $categories = Category::all();
         $colors = Color::all();
@@ -24,9 +24,9 @@ class FilterListController extends Controller
             'colors' => $colors,
             'tags' => $tags,
             'price' => [
-                'maxPrice' => $maxPrice,
-                'minPrice' => $minPrice,
-            ],
+                'max' => $maxPrice,
+                'min' => $minPrice,
+            ]
         ];
 
         return response()->json($result);

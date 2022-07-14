@@ -21,6 +21,7 @@ class IndexProductResource extends JsonResource
             'description' => $this->description,
             'content' => $this->content,
             'image_url' => $this->imageUrl,
+            'product_images' => ProductImageResource::collection($this->productImages),
             'price' => $this->price,
             'old_price' => $this->old_price,
             'count' => $this->count,

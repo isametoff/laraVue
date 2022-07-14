@@ -69,48 +69,15 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputFile">Добавить изображение</label>
                                     <div class="input-group ">
-                                        <div class="custom-file">
-                                            <label class="custom-file-label">Выбрать изображение</label>
-                                            <input type="file" class="custom-file-input" name="product_images[]">
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Загрузить</span>
+                                        <div class=" custom-file">
+                                            <input name="product_images[]" multiple value="{{old('product_images')}}"
+                                                   class=" form-control"
+                                                   type="file" id="formFile">
                                         </div>
                                     </div>
-                                    @error('preview_image')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Добавить изображение</label>
-                                    <div class="input-group ">
-                                        <div class="custom-file">
-                                            <label class="custom-file-label">Выбрать изображение</label>
-                                            <input type="file" class="custom-file-input" name="product_images[]">
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Загрузить</span>
-                                        </div>
-                                    </div>
-                                    @error('preview_image')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Добавить изображение</label>
-                                    <div class="input-group ">
-                                        <div class="custom-file">
-                                            <label class="custom-file-label">Выбрать изображение</label>
-                                            <input type="file" class="custom-file-input" name="product_images[]">
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Загрузить</span>
-                                        </div>
-                                    </div>
-                                    @error('preview_image')
-                                        <div class="text-danger">{{ $message }}</div>
+                                    @error('product_images')
+                                    <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                                 <!-- /.form-group -->

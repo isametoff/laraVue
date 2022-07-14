@@ -47,6 +47,7 @@ class StoreRequest extends FormRequest
             'nullable' => 'nullable',
             'string' => 'string',
             'product_images.required' => 'Все поля с изображениями должны быть заполнены ',
+            'between' => 'Должно быть три изображения',
 
         ];
     }

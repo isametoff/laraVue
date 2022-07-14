@@ -34,7 +34,7 @@ class UpdateRequest extends FormRequest
             'category_id' => 'nullable',
             'tag_id' => 'nullable|array',
             'color_id' => 'nullable|array',
-            'product_images' => 'required|array|between:3,3',
+            'product_images' => 'nullable|array|between:3,6',
         ];
     }
 

@@ -15,7 +15,7 @@ class IndexController extends Controller
         $data = $request->validated();
 
         $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
-        $products = Product::filter($filter)->orderBy('created_at','desc')->paginate(1);
+        $products = Product::filter($filter)->orderBy('created_at','desc')->paginate(10);
 //        $query = Product::query();
 //
 //        if (isset($data['category_id'])) {

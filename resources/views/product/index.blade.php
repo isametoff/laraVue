@@ -33,7 +33,8 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Название</th>
-                                            <th>Описание</th>
+                                            <th class="col-4 ">Описание</th>
+                                            <th>Категория</th>
                                             <th>Цена</th>
                                             <th>Кол-во</th>
                                             <th colspan="3">Действия</th>
@@ -45,6 +46,7 @@
                                                 <td>{{ $product->id }}</td>
                                                 <td>{{ $product->title }}</td>
                                                 <td>{{ $product->description }}</td>
+                                                <td>{{ $product->category->title }}</td>
                                                 <td>{{ $product->price }}</td>
                                                 <td>{{ $product->count }}</td>
                                                 <td class="text-center"><a
