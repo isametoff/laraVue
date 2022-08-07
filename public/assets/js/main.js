@@ -101,6 +101,12 @@ jQuery(function ($) {
             $(".side-cart").removeClass("active");
             $(".side-cart-closer").removeClass("active");
         });
+        // $(document).click(function (e) {
+        //     if ($(".side-cart-closer") && !$(".side-cart").has(e.target).length === 0) {
+        //         $(".side-cart").slideUp();
+        //         $(".side-cart").removeClass("active");
+        //     };
+        // });
 
         $(".slidebarfilter, .remove-sidebar").on("click", function () {
             $(".shop-grid-sidebar").toggleClass("active");

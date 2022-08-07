@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Color;
+namespace App\Http\Resources\Order;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ColorResource extends JsonResource
+class OrderResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,10 @@ class ColorResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'title' => $this->title,
-            'hex_code' => $this->hex_code,
+            'user_id' => $this->user_id,
+            'total_price' => $this->total_price,
+            'payment_status' => $this->payment_status,
+            'product' => json_decode($this->product),
         ];
     }
 }

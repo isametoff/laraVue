@@ -50,7 +50,7 @@
                                                 <td>{{ $product->price }}</td>
                                                 <td>{{ $product->count }}</td>
                                                 <td class="text-center"><a
-                                                        href="{{ route('product.show', $product->id) }}">
+                                                        href="/products/{{ $product->id }}">
                                                         <i class="far fa-eye"></i></a></td>
                                                 <td class="text-center"><a
                                                         href="{{ route('product.edit', $product->id) }}"><i

@@ -41,7 +41,7 @@
 <!-- Jquery v3.6.0 Js -->
 <script src="{{ asset('assets/js/jqurey.v3.6.0.min.js') }}"></script> <!-- Popper v2.9.3 Js -->
 <script src="{{ asset('assets/js/popper.v2.9.3.min.js')}}"></script> <!-- Bootstrap v5.1.1 js -->
-<script src="{{ asset('assets/js/bootstrap.v5.1.1.min.js')}}"></script> <!-- jquery ui js -->
+{{--<script src="{{ asset('assets/js/bootstrap.v5.1.1.min.js')}}"></script> <!-- jquery ui js -->--}}
 <script src="{{ asset('assets/js/plugin/jquery-ui.min.js') }}"></script> <!-- Parallax js -->
 <script src="{{ asset('assets/js/plugin/jarallax.min.js') }}"></script> <!-- Isotope js -->
 <script src="{{ asset('assets/js/plugin/isotope.js') }}"></script> <!-- Slick Slider Js -->
