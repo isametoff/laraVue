@@ -330,7 +330,7 @@
 
 <script>
 export default {
-  name: 'index',
+  name: 'TheCart',
 
   props: ['addToCart', 'productsCart'],
 

@@ -1,14 +1,19 @@
 <template>
   <TheHeader
-    :totalOrder="totalOrder"
-    :productsCart="productsCart"
-    :products="products"
-    :totalPrice="totalPrice"
-    @removeProduct="removeProduct"
     :key="0"
+    :products="products"
+    :productsCart="productsCart"
+    :totalPrice="totalPrice"
+    :totalOrder="totalOrder"
+    @removeProduct="removeProduct"
     @clearCart="clearCart"
   />
-  <router-view :productsCart="productsCart" @addToCart="addToCart" />
+  <router-view
+    :productsCart="productsCart"
+    @addToCart="addToCart"
+    @removeProduct="removeProduct"
+    @clearCart="clearCart"
+  />
   <TheFooter />
 </template>
 <script>
