@@ -12,6 +12,7 @@
               class="breadcrumb-content pb-60 text-center wow fadeInUp animated"
             >
               <h2>Shop Grid</h2>
+              <h2>Shop Grid</h2>
               <div class="breadcrumb-menu">
                 <ul>
                   <li>
@@ -238,6 +239,7 @@
                             <div class="products-grid-one__badge-box">
                               <span class="bg_base badge new">New</span>
                             </div>
+                            <!-- addToCart(product.id, true, product.price) -->
                             <a
                               @click.prevent="
                                 addToCart(product.id, true, product.price)
@@ -246,6 +248,11 @@
                               class="addcart btn--primary style2"
                             >
                               Add To Cart
+                              {{
+                                productsCart.length > 0
+                                  ? productsCart[0].qty
+                                  : 0
+                              }}
                             </a>
                             <div class="products-grid__usefull-links">
                               <ul>
@@ -660,6 +667,8 @@
 export default {
   name: 'index',
 
+  props: ['addToCart', 'productsCart'],
+
   mounted() {
     $(document).trigger('changed');
     this.getProducts();
@@ -681,43 +690,20 @@ export default {
       page: 1,
     };
   },
-  computed: {
-    totalPrice() {
-      let total = 0;
-      this.productsCart.forEach((productsCart) => {
-        [(total += productsCart.price * productsCart.qty)];
-      });
-      return total;
-    },
-  },
+  computed: {},
+
+  // created: function () {
+  //   window.addEventListener('storage', () => {
+  //     this.productsCart = JSON.parse(localStorage.getItem('cart'));
+  //     console.log('addEventListener');
+  //   });
+  // },
+
   methods: {
     addToCart(id, isSingle, price) {
-      let qty = isSingle ? 1 : $('.qtyValue').val();
-      let cart = localStorage.getItem('cart');
-      $('.qtyValue').val(1);
-
-      let newProduct = [
-        {
-          id: id,
-          qty: qty,
-          price: price,
-        },
-      ];
-      if (!cart) {
-        localStorage.setItem('cart', JSON.stringify(newProduct));
-      } else {
-        cart = JSON.parse(cart);
-        cart.forEach((productInCart) => {
-          if (productInCart.id === id) {
-            productInCart.qty = Number(productInCart.qty) + Number(qty);
-            newProduct = null;
-          }
-        });
-        Array.prototype.push.apply(cart, newProduct);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        // console.log(cart)
-      }
+      this.$emit('addToCart', id, isSingle, price);
     },
+
     filterProducts() {
       let prices = $('#priceRange').val();
       this.prices = prices.replace(/[\s+]|[руб.]/g, '').split('-');
@@ -756,7 +742,7 @@ export default {
     },
     getProducts() {
       this.axios
-        .post('http://127.0.0.1:8000/api/products', {
+        .post('/api/products', {
           categories: this.categories,
           colors: this.colors,
           tags: this.tags,
@@ -778,7 +764,7 @@ export default {
     },
     getProduct(id) {
       this.axios
-        .get(`http://127.0.0.1:8000/api/products/${id}`)
+        .get(`/api/products/${id}`)
         .then((res) => {
           this.popupProduct = res.data.data;
         })
@@ -788,7 +774,7 @@ export default {
     },
     getFilterList() {
       this.axios
-        .get(`http://127.0.0.1:8000/api/products/filters`)
+        .get(`/api/products/filters`)
         .then((res) => {
           this.filterList = res.data;
           console.log(res);
@@ -819,15 +805,7 @@ export default {
         });
     },
   },
-  watch: {
-    localStorage() {
-      // const wnd = window.localStorage;
-      window.localStorage.addEventListener('cart', function (e) {
-        console.log(e);
-        console.log('localStorage');
-      });
-    },
-  },
+  watch: {},
 };
 </script>
 

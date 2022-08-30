@@ -331,28 +331,23 @@
 <script>
 export default {
   name: 'index',
-  mounted() {
-    $(document).trigger('changed');
-    this.getProducts();
-    this.getCartProducts();
-    // this.productsCart.length < 1 || !this.productsCart
-    //     ? ""
-    //     : setInterval(this.getCartProducts, 1500);
-    if (JSON.parse(localStorage.getItem('cart').length > 0)) {
-      console.log(JSON.parse(localStorage.getItem('cart').length));
-    }
-  },
+
+  props: ['addToCart', 'productsCart'],
+
   data() {
     return {
       products: [],
-      productsCart: [],
-      cart: 1,
       name: '',
       email: '',
       adress: '',
       interval: null,
     };
   },
+
+  mounted() {
+    this.getProducts(), this.getCartProducts();
+  },
+
   computed: {
     totalPrice() {
       let total = 0;
@@ -367,7 +362,8 @@ export default {
 
   created: function () {
     window.addEventListener('storage', () => {
-      this.productsCart = JSON.parse(localStorage.getItem('cart'));
+      this.getCartProducts();
+      console.log(11111111);
     });
   },
 
@@ -418,13 +414,11 @@ export default {
     },
 
     removeProduct(id) {
-      this.productsCart = this.productsCart.filter((cart) => {
-        return cart.id !== id;
-      });
+      this.$emit('removeProduct', id);
     },
 
     clearCart() {
-      this.productsCart = [];
+      this.$emit('clearCart');
     },
   },
 
@@ -432,6 +426,10 @@ export default {
     productsCart: {
       handler() {
         localStorage.setItem('cart', JSON.stringify(this.productsCart));
+        window.addEventListener('storage', () => {
+          this.getCartProducts();
+          console.log(222222);
+        });
       },
       deep: true,
     },
