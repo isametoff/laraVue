@@ -9,10 +9,13 @@
     @clearCart="clearCart"
   />
   <router-view
+    :products="products"
     :productsCart="productsCart"
     @addToCart="addToCart"
     @removeProduct="removeProduct"
     @clearCart="clearCart"
+    @plusQty="plusQty"
+    @minusQty="minusQty"
   />
   <TheFooter />
 </template>
@@ -51,15 +54,6 @@ export default {
         : total;
       return total;
     },
-    totalOrder() {
-      if (this.productsCart) {
-        if (this.productsCart.length > 0) {
-          let orders = this.productsCart.length;
-          return orders;
-        }
-      }
-      return 0;
-    },
   },
 
   created: function () {
@@ -70,12 +64,10 @@ export default {
   },
 
   methods: {
-    addToCart(id, isSingle, price) {
-      const qty = isSingle ? 1 : $('.qtyValue').val();
-      $('.qtyValue').val(1);
+    addToCart(id, qty, price) {
 
-      const products = this.productsCart;
-      const filteredCarts = products.filter((item) => item.id === id);
+      const filteredCarts = this.productsCart.filter((item) => item.id === id);
+
       const newProduct = [
         {
           id: id,
@@ -86,11 +78,10 @@ export default {
 
       if (this.productsCart.length == 0 || filteredCarts.length < 1) {
         Array.prototype.push.apply(this.productsCart, newProduct);
-        console.log('Add');
       } else {
         for (let index = 0; index < this.productsCart.length; index++) {
           if (this.productsCart[index].id == id) {
-            this.productsCart[index].qty += 1;
+            this.productsCart[index].qty += qty;
           }
         }
       }
@@ -98,7 +89,10 @@ export default {
 
     plusQty(id) {
       this.productsCart[id].qty += 1;
-      console.log('App.plusQty');
+    },
+
+    minusQty(id) {
+      this.productsCart[id].qty -= 1;
     },
 
     activeCart() {

@@ -332,11 +332,10 @@
 export default {
   name: 'TheCart',
 
-  props: ['addToCart', 'productsCart'],
+  props: ['addToCart', 'productsCart', 'products'],
 
   data() {
     return {
-      products: [],
       name: '',
       email: '',
       adress: '',
@@ -345,7 +344,7 @@ export default {
   },
 
   mounted() {
-    this.getProducts(), this.getCartProducts();
+    this.products, this.productsCart;
   },
 
   computed: {
@@ -360,25 +359,7 @@ export default {
     },
   },
 
-  created: function () {
-    window.addEventListener('storage', () => {
-      this.getCartProducts();
-      console.log(11111111);
-    });
-  },
-
   methods: {
-    getProducts() {
-      this.axios
-        .post('http://127.0.0.1:8000/api/cart')
-        .then((res) => {
-          this.products = res.data.data;
-          console.log(res);
-        })
-        .finally((v) => {
-          $(document).trigger('changed');
-        });
-    },
     storeOrder() {
       this.axios
         .post('http://127.0.0.1:8000/api/orders', {
@@ -397,20 +378,12 @@ export default {
         });
     },
 
-    getCartProducts() {
-      JSON.parse(localStorage.getItem('cart').length) < 3 ||
-      !JSON.parse(localStorage.getItem('cart'))
-        ? this.getProducts
-        : (this.productsCart = JSON.parse(localStorage.getItem('cart')));
-
-      console.log(this.productsCart);
-    },
     minusQty(id) {
-      this.productsCart[id].qty -= 1;
+      this.$emit('minusQty', id);
     },
 
     plusQty(id) {
-      this.productsCart[id].qty += 1;
+      this.$emit('plusQty', id);
     },
 
     removeProduct(id) {
@@ -419,19 +392,6 @@ export default {
 
     clearCart() {
       this.$emit('clearCart');
-    },
-  },
-
-  watch: {
-    productsCart: {
-      handler() {
-        localStorage.setItem('cart', JSON.stringify(this.productsCart));
-        window.addEventListener('storage', () => {
-          this.getCartProducts();
-          console.log(222222);
-        });
-      },
-      deep: true,
     },
   },
 };

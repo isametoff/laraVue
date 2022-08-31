@@ -17,32 +17,274 @@
     </div>
     <!--End Shop Details Breadcrumb-->
     <!--Start Shop Details Top-->
-    <section class="shop-details-top two">
+    <section class="shop-details-top three">
+      <div class="container">
+        <div class="row mt--30">
+          <div class="col-xl-6 col-lg-6 mt-30 wow fadeInUp animated">
+            <div class="single-product-box">
+              <div class="big-product single-product-three slider-for">
+                <!-- :key="productImage.id" -->
+                <div
+                  v-for="(productImage, idx) in product.product_images"
+                  :key="idx"
+                >
+                  <div class="single-item">
+                    <img :key="idx" :src="productImage.url" alt="" />
+                    <div class="ptag">
+                      <span class="one">-20% </span>
+                      <span class="two">in stock </span>
+                    </div>
+                    <a href="#0" class="love">
+                      <i class="flaticon-like"></i>
+                    </a>
+                    <a :href="`${productImage.url}`" class="zoom">
+                      <i class="flaticon-zoom-1"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="product-slicknav single-product-three-nav slider-nav"
+                v-for="(productImage, idx) in product.product_images"
+                :key="idx"
+              >
+                <div >
+                  <span class="single-item">
+                    <img :src="productImage.url" alt="" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6 mt-30 wow fadeInUp animated">
+            <div class="shop-details-top-right three">
+              <div class="shop-details-top-right-content-box">
+                <div class="shop-details-top-title m-0">
+                  <h3>Nike Sport Sneakers</h3>
+                </div>
+                <div class="shop-details-top-review-box">
+                  <div class="shop-details-top-review">
+                    <ul>
+                      <li><i class="flaticon-star-1"></i></li>
+                      <li><i class="flaticon-star-1"></i></li>
+                      <li><i class="flaticon-star-1"></i></li>
+                      <li><i class="flaticon-star-1"></i></li>
+                      <li><i class="flaticon-star-1"></i></li>
+                    </ul>
+                    <p>(2 Reviews)</p>
+                  </div>
+                </div>
+                <ul class="shop-details-top-info">
+                  <li><span>SKU:</span> 25d5214</li>
+                  <li><span>Vendor:</span> Flemeno</li>
+                </ul>
+                <div
+                  class="shop-details-top-price-box d-flex align-items-center justify-content-between flex-wrap"
+                >
+                  <div>
+                    <h3 class="pe-1">
+                      <del class="m-0 me-1">$50.00</del> $30.00
+                    </h3>
+                    <p>(+15% Vat Included)</p>
+                  </div>
+                  <a href="#0" class="pshare">
+                    <i class="flaticon-share-1"></i>
+                  </a>
+                </div>
+                <div class="color-size-box">
+                  <div class="shop-details-top-color-sky-box">
+                    <h4>Model</h4>
+                    <ul class="m-0 varients">
+                      <li>
+                        <a
+                          href="#0"
+                          class="shop-details-top-color-sky-img"
+                          data-src="assets/images/home-three/products-6.png"
+                        >
+                          <img
+                            src="assets/images/home-three/products-6.png"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#0"
+                          class="shop-details-top-color-sky-img"
+                          data-src="assets/images/home-three/products-1.jpg"
+                        >
+                          <img
+                            src="assets/images/home-three/products-1.jpg"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#0"
+                          class="shop-details-top-color-sky-img"
+                          data-src="assets/images/home-three/products-2.jpg"
+                        >
+                          <img
+                            src="assets/images/home-three/products-2.jpg"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="size-box">
+                    <h4>Size</h4>
+                    <div class="d-flex align-items-center">
+                      <div class="size-sellect language">
+                        <select>
+                          <option>28</option>
+                          <option value="1">32</option>
+                          <option value="4">34</option>
+                          <option value="4">36</option>
+                        </select>
+                      </div>
+                      <a href="#0" class="ps-2">Size Guide</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-quantity m-0">
+                  <h4>Quantity</h4>
+                  <div
+                    class="product-quantity-box d-flex align-items-center flex-wrap"
+                  >
+                    <div class="qty mr-2">
+                      <div class="qtySelector text-center">
+                        <span class="decreaseQty"
+                          ><i class="flaticon-minus"></i>
+                        </span>
+                        <input type="number" class="qtyValue" value="1" />
+                        <span class="increaseQty">
+                          <i class="flaticon-plus"></i>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="product-quantity-check">
+                      <i class="flaticon-select"></i>
+                      <p>Only 10 Left !</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="shop-details-top-cart-box-btn">
+                  <button class="btn--primary style2" type="submit">
+                    Add to Cart
+                  </button>
+                </div>
+                <div class="shop-details-top-buy-now-btn">
+                  <a href="cart.html" class="btn--primary">Buy It Now</a>
+                </div>
+                <ul class="shop-details-top-ask-question">
+                  <li>
+                    <a href="compare.html">
+                      <div class="icon">
+                        <i class="flaticon-left-and-right-arrows"></i>
+                      </div>
+                      <div class="text">
+                        <p>Add to Compare</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="contact.html">
+                      <div class="icon">
+                        <i class="flaticon-chat-bubble"></i>
+                      </div>
+                      <div class="text">
+                        <p>Ask Question</p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+                <p class="shop-details-top-product-sale">
+                  50 visitor are looking at this product!
+                </p>
+                <div class="shop-details-top-safe-checkout">
+                  <h4>Guranteed Safe Checkout</h4>
+                  <ul class="shop-details-top-safe-checkout-list">
+                    <li>
+                      <div class="shop-details-top-safe-checkout-img">
+                        <a href="#0"
+                          ><img
+                            src="assets/images/shop/shop-details-top-safe-checkout-img-3.jpg"
+                            alt=""
+                        /></a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="shop-details-top-safe-checkout-img">
+                        <a href="#0"
+                          ><img
+                            src="assets/images/shop/shop-details-top-safe-checkout-img-4.jpg"
+                            alt=""
+                        /></a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="shop-details-top-safe-checkout-img">
+                        <a href="#0"
+                          ><img
+                            src="assets/images/shop/shop-details-top-safe-checkout-img-5.jpg"
+                            alt=""
+                        /></a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="shop-details-top-safe-checkout-img">
+                        <a href="#0"
+                          ><img
+                            src="assets/images/shop/shop-details-top-safe-checkout-img-6.jpg"
+                            alt=""
+                        /></a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="shop-details-top-safe-checkout-img">
+                        <a href="#0"
+                          ><img
+                            src="assets/images/shop/shop-details-top-safe-checkout-img-7.jpg"
+                            alt=""
+                        /></a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="shop-details-top two">
       <div class="container">
         <div class="row mt--30">
           <div class="col-xl-6 col-lg-6 mt-30 wow fadeInUp animated">
             <div class="single-product-box one">
               <div class="big-product single-product-one slider-for">
-                <div
-                  v-for="(productImage, index) in product.productImages"
-                  :key="index"
-                >
-                  <div class="single-item">
+                <div>
+                  <div
+                    class="single-item"
+                    v-for="(productImage) in product.product_images"
+                    :key="productImage.id"
+                  >
                     <img :src="productImage.url" alt="" />
                     <div class="ptag"><span class="one">-20% </span></div>
-                    <a :href="`#${index}`" class="love">
+                    <a :href="`#${productImage.id}`" class="love">
                       <i class="flaticon-like"></i>
                     </a>
                   </div>
                 </div>
               </div>
               <div class="navholder">
-                <div
-                  v-for="(productImage, index) in product.productImages"
-                  :key="index"
-                  class="product-slicknav single-product-one-nav slider-nav"
-                >
-                  <div>
+                <div class="product-slicknav single-product-one-nav slider-nav">
+                  <div
+                    v-for="(productImage, index) in product.product_images"
+                    :key="index"
+                  >
                     <span class="single-item">
                       <img :src="productImage.url" />
                     </span>
@@ -100,6 +342,20 @@
                 <div class="shop-details-top-color-sky-box">
                   <h4>Color: (Sky Blue)</h4>
                   <ul class="varients">
+                    <li>
+                      <a
+                        class="color-option-single shadow border-5"
+                        href="#0"
+                        style="
+                          background-color: rgb(219, 112, 147);
+                          width: 70px;
+                          height: 70px;
+                          border-radius: 8px;
+                        "
+                      >
+                        <span>лиловый</span>
+                      </a>
+                    </li>
                     <li>
                       <a
                         href="#0"
@@ -360,7 +616,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!--End Shop Details Top-->
     <!-- productdrescription-tabStart -->
     <section class="product pt-60 pb-60 wow fadeInUp overflow-hidden">
@@ -2241,7 +2497,7 @@
 
 <script>
 export default {
-  name: 'index',
+  name: 'TheProductShow',
 
   data() {
     return {
@@ -2253,7 +2509,7 @@ export default {
     this.getProduct();
   },
   methods: {
-    getProduct(id) {
+    getProduct() {
       this.axios
         .get(`/api/products/${this.$route.params.id}`)
         .then((res) => {
@@ -2268,4 +2524,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style></style>

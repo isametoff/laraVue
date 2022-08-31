@@ -242,7 +242,7 @@
                             <!-- addToCart(product.id, true, product.price) -->
                             <a
                               @click.prevent="
-                                addToCart(product.id, true, product.price)
+                                addToCart(product.id, 1, product.price)
                               "
                               href="cart.html"
                               class="addcart btn--primary style2"
@@ -394,15 +394,16 @@
                                     <div class="add-product">
                                       <div class="button-group">
                                         <div class="qtySelector text-center">
-                                          <span class="decreaseQty"
+                                          <span
+                                            class="decreaseQty"
+                                            @click.prevent="minusQty()"
                                             ><i class="flaticon-minus"></i>
                                           </span>
-                                          <input
-                                            type="number"
-                                            class="qtyValue"
-                                            value="1"
-                                          />
-                                          <span class="increaseQty">
+                                          <input v-model="qtyValue" />
+                                          <span
+                                            class="increaseQty"
+                                            @click.prevent="plusQty()"
+                                          >
                                             <i class="flaticon-plus"></i>
                                           </span>
                                         </div>
@@ -410,7 +411,7 @@
                                           @click.prevent="
                                             addToCart(
                                               product.id,
-                                              false,
+                                              qtyValue,
                                               product.price
                                             )
                                           "
@@ -665,7 +666,7 @@
 
 <script>
 export default {
-  name: 'index',
+  name: 'TheProduct',
 
   props: ['addToCart', 'productsCart'],
 
@@ -688,16 +689,10 @@ export default {
       pagination: [],
       perPage: 12,
       page: 1,
+      qtyValue: 1,
     };
   },
   computed: {},
-
-  // created: function () {
-  //   window.addEventListener('storage', () => {
-  //     this.productsCart = JSON.parse(localStorage.getItem('cart'));
-  //     console.log('addEventListener');
-  //   });
-  // },
 
   methods: {
     addToCart(id, isSingle, price) {
@@ -707,7 +702,6 @@ export default {
     filterProducts() {
       let prices = $('#priceRange').val();
       this.prices = prices.replace(/[\s+]|[руб.]/g, '').split('-');
-
       this.getProducts();
     },
     addColor(id) {
@@ -767,11 +761,21 @@ export default {
         .get(`/api/products/${id}`)
         .then((res) => {
           this.popupProduct = res.data.data;
+          console.log(res);
         })
         .finally((v) => {
           $(document).trigger('changed');
         });
     },
+
+    plusQty() {
+      this.qtyValue += 1;
+    },
+
+    minusQty() {
+      this.qtyValue > 1 ? (this.qtyValue -= 1) : '';
+    },
+
     getFilterList() {
       this.axios
         .get(`/api/products/filters`)
@@ -805,7 +809,6 @@ export default {
         });
     },
   },
-  watch: {},
 };
 </script>
 

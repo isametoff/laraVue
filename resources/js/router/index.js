@@ -10,12 +10,12 @@ const router = createRouter({
     },
     {
       path: '/products',
-      name: 'products.index',
+      name: 'products',
       component: () => import('../components/TheProduct.vue')
     },
       {
       path: '/cart',
-      name: 'cart.index',
+      name: 'cart',
       component: () => import('../components/TheCart.vue')
     },
     {

@@ -165,7 +165,11 @@
                           <li @click.prevent="activeCart">
                             <a href="#0" class="number">
                               <i class="flaticon-shopping-cart"></i
-                              ><span class="count">({{ totalOrder }})</span>
+                              ><span
+                                class="count"
+                                v-if="productsCart.length > 0"
+                                >({{ productsCart.length }})
+                              </span>
                             </a>
                           </li>
                         </ul>
@@ -229,7 +233,9 @@
                     <li class="dropdown-list" @click.prevent="activeCart">
                       <a href="#0" class="number"
                         ><i class="flaticon-shopping-cart"></i
-                        ><span class="count">({{ totalOrder }})</span>
+                        ><span class="count" v-if="productsCart.length > 0"
+                          >({{ productsCart.length }})</span
+                        >
                       </a>
                     </li>
                   </ul>
@@ -420,18 +426,11 @@
 
 <script>
 export default {
-  props: [
-    'productsCart',
-    'products',
-    'totalPrice',
-    'totalOrder',
-  ],
+  props: ['productsCart', 'products', 'totalPrice'],
 
   mounted() {
     $(document).trigger('changed');
     this.productsCart;
-    // this.getProducts();
-    // this.getCartProducts();
   },
 
   data() {
