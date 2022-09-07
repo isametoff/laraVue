@@ -1,9 +1,8 @@
 {
     "private": true,
     "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch"
+        "dev": "vite",
+        "build": "vite build"
     },
     "devDependencies": {
         "axios": "^0.25",
