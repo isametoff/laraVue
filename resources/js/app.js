@@ -6,7 +6,7 @@ import axios from "axios";
 
 const app = createApp(App)
 
-require('./bootstrap')
+import './bootstrap'
 
 app.use(router)
 app.config.globalProperties.axios = axios
