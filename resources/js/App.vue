@@ -20,6 +20,8 @@
   <TheFooter />
 </template>
 <script>
+import axios from 'axios';
+
 import TheHeader from './components/TheHeader.vue';
 import TheFooter from './components/TheFooter.vue';
 export default {
@@ -65,7 +67,7 @@ export default {
 
   methods: {
     addToCart(id, qty, price) {
-
+      
       const filteredCarts = this.productsCart.filter((item) => item.id === id);
 
       const newProduct = [
@@ -105,11 +107,11 @@ export default {
     },
 
     getProducts() {
-      this.axios
+      axios
         .post('/api/cart')
         .then((res) => {
           this.products = res.data.data;
-          // console.log(res)
+          console.log(res.data.data);
         })
         .finally((v) => {
           $(document).trigger('changed');

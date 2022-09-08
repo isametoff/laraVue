@@ -70,7 +70,7 @@ Route::prefix('admin')->group(function () {
         Route::delete('/{product}', App\Http\Controllers\Product\DeleteController::class)->name('delete');
     });
 
-    Auth::routes();
+    // Auth::routes();
 
 //    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });

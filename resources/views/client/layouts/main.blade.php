@@ -13,8 +13,7 @@
     <!-- Bootstrap 5 Css -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.5.1.1.min.css') }}">
     <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- FlatIcon Css -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/flaticon.css') }}">
 
@@ -31,7 +30,8 @@
     <!-- Style Css -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <!-- Vue -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
 </head>
 
@@ -41,7 +41,7 @@
 <!-- Jquery v3.6.0 Js -->
 <script src="{{ asset('assets/js/jqurey.v3.6.0.min.js') }}"></script> <!-- Popper v2.9.3 Js -->
 <script src="{{ asset('assets/js/popper.v2.9.3.min.js')}}"></script> <!-- Bootstrap v5.1.1 js -->
-{{--<script src="{{ asset('assets/js/bootstrap.v5.1.1.min.js')}}"></script> <!-- jquery ui js -->--}}
+<script src="{{ asset('assets/js/bootstrap.v5.1.1.min.js')}}"></script> <!-- jquery ui js -->
 <script src="{{ asset('assets/js/plugin/jquery-ui.min.js') }}"></script> <!-- Parallax js -->
 <script src="{{ asset('assets/js/plugin/jarallax.min.js') }}"></script> <!-- Isotope js -->
 <script src="{{ asset('assets/js/plugin/isotope.js') }}"></script> <!-- Slick Slider Js -->
@@ -53,6 +53,5 @@
 <script src="{{ asset('assets/js/plugin/jquery.countdown.min.js') }}"></script> <!-- Main js -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
 <!--==== Js Scripts End ====-->
-<script type="module" src="{{ asset('main.js') }}"></script>
 
 </html>

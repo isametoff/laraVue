@@ -1,13 +1,12 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-// import Header from "./components/Header"
-import router from './router'
-import axios from "axios";
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import axios from 'axios';
 
-const app = createApp(App)
+const app = createApp(App).use(router); 
 
-import './bootstrap'
+import './bootstrap';
 
-app.use(router)
-app.config.globalProperties.axios = axios
-app.mount('#app')
+app.mount('#app');
+// app;
+app.config.globalProperties.axios = axios;

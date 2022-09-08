@@ -99,10 +99,10 @@
                         <a
                           href="#0"
                           class="shop-details-top-color-sky-img"
-                          data-src="assets/images/home-three/products-6.png"
+                          data-src="/assets/images/home-three/products-6.png"
                         >
                           <img
-                            src="assets/images/home-three/products-6.png"
+                            src="/assets/images/home-three/products-6.png"
                             alt=""
                           />
                         </a>
@@ -111,10 +111,10 @@
                         <a
                           href="#0"
                           class="shop-details-top-color-sky-img"
-                          data-src="assets/images/home-three/products-1.jpg"
+                          data-src="/assets/images/home-three/products-1.jpg"
                         >
                           <img
-                            src="assets/images/home-three/products-1.jpg"
+                            src="/assets/images/home-three/products-1.jpg"
                             alt=""
                           />
                         </a>
@@ -123,10 +123,10 @@
                         <a
                           href="#0"
                           class="shop-details-top-color-sky-img"
-                          data-src="assets/images/home-three/products-2.jpg"
+                          data-src="/assets/images/home-three/products-2.jpg"
                         >
                           <img
-                            src="assets/images/home-three/products-2.jpg"
+                            src="/assets/images/home-three/products-2.jpg"
                             alt=""
                           />
                         </a>
@@ -210,7 +210,7 @@
                       <div class="shop-details-top-safe-checkout-img">
                         <a href="#0"
                           ><img
-                            src="assets/images/shop/shop-details-top-safe-checkout-img-3.jpg"
+                            src="/assets/images/shop/shop-details-top-safe-checkout-img-3.jpg"
                             alt=""
                         /></a>
                       </div>
@@ -219,7 +219,7 @@
                       <div class="shop-details-top-safe-checkout-img">
                         <a href="#0"
                           ><img
-                            src="assets/images/shop/shop-details-top-safe-checkout-img-4.jpg"
+                            src="/assets/images/shop/shop-details-top-safe-checkout-img-4.jpg"
                             alt=""
                         /></a>
                       </div>
@@ -228,7 +228,7 @@
                       <div class="shop-details-top-safe-checkout-img">
                         <a href="#0"
                           ><img
-                            src="assets/images/shop/shop-details-top-safe-checkout-img-5.jpg"
+                            src="/assets/images/shop/shop-details-top-safe-checkout-img-5.jpg"
                             alt=""
                         /></a>
                       </div>
@@ -237,7 +237,7 @@
                       <div class="shop-details-top-safe-checkout-img">
                         <a href="#0"
                           ><img
-                            src="assets/images/shop/shop-details-top-safe-checkout-img-6.jpg"
+                            src="/assets/images/shop/shop-details-top-safe-checkout-img-6.jpg"
                             alt=""
                         /></a>
                       </div>
@@ -246,7 +246,7 @@
                       <div class="shop-details-top-safe-checkout-img">
                         <a href="#0"
                           ><img
-                            src="assets/images/shop/shop-details-top-safe-checkout-img-7.jpg"
+                            src="/assets/images/shop/shop-details-top-safe-checkout-img-7.jpg"
                             alt=""
                         /></a>
                       </div>

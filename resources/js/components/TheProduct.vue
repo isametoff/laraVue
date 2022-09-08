@@ -12,7 +12,6 @@
               class="breadcrumb-content pb-60 text-center wow fadeInUp animated"
             >
               <h2>Shop Grid</h2>
-              <h2>Shop Grid</h2>
               <div class="breadcrumb-menu">
                 <ul>
                   <li>
@@ -424,25 +423,25 @@
                                     <div class="payment-method">
                                       <a href="#0">
                                         <img
-                                          src="{{asset('src/assets/images/payment_method/method_1.png')}}"
+                                          src="/src/assets/images/payment_method/method_1.png"
                                           alt=""
                                         />
                                       </a>
                                       <a href="#0">
                                         <img
-                                          src="{{asset('src/assets/images/payment_method/method_2.png')}}"
+                                          src="/src/assets/images/payment_method/method_2.png"
                                           alt=""
                                         />
                                       </a>
                                       <a href="#0">
                                         <img
-                                          src="{{asset('src/assets/images/payment_method/method_3.png')}}"
+                                          src="/src/assets/images/payment_method/method_3.png"
                                           alt=""
                                         />
                                       </a>
                                       <a href="#0">
                                         <img
-                                          src="{{asset('src/assets/images/payment_method/method_4.png')}}"
+                                          src="/src/assets/images/payment_method/method_4.png"
                                           alt=""
                                         />
                                       </a>

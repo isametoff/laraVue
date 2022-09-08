@@ -16,7 +16,7 @@
                       <span></span>
                     </div>
                     <a href="index.html" class="logo">
-                      <img src="assets/images/logo/logo.png" alt="" />
+                      <img src="/../assets/images/logo/logo.png" alt="" />
                     </a>
                     <div class="cart-holder">
                       <a href="#0" class="cart cart-icon position-relative">
@@ -90,7 +90,7 @@
             >
               <div class="logo">
                 <a href="index.html">
-                  <img src="assets/images/logo/logo.png" alt="" />
+                  <img src="/../assets/images/logo/logo.png" alt="" />
                 </a>
               </div>
             </div>
@@ -198,7 +198,7 @@
                   <span></span>
                 </div>
                 <a href="index.html" class="logo">
-                  <img src="assets/images/logo/logo.png" alt="" />
+                  <img src="/../assets/images/logo/logo.png" alt="" />
                 </a>
                 <div class="cart-holder">
                   <a href="#0" class="cart cart-icon position-relative">
@@ -213,7 +213,7 @@
       <div class="container position-relative d-lg-block d-none">
         <div class="d-flex align-items-center justify-content-between">
           <a href="index.html" class="logo me-2">
-            <img src="assets/images/logo/logo.png" alt="" />
+            <img src="/../assets/images/logo/logo.png" alt="" />
           </a>
           <div class="mega-menu-default mega-menu d-lg-block d-none">
             <div class="container">
